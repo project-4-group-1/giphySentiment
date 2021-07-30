@@ -26,14 +26,16 @@
 
 import firebase from './firebase';
 import axios from 'axios';
+import Header from './Header';
+import Input from './Input';
 
 function App() {
   return (
-    <div>
-      <form action="#">
-        <label htmlFor="search">Search here:</label>
-        <input type="text" id="search" />
-      </form>
+    <div className="wrapper">
+      <Header />
+      <main>
+        <Input />
+      </main>
     </div>
   );
 }
