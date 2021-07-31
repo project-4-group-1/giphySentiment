@@ -1,7 +1,7 @@
 // import firebase from "./firebase";
 
 const Display = (props) => {
-  const { gifGallery, userInput, handleClick } = props;
+  const { gifGallery, handleClick } = props;
 
   return (
     <section>

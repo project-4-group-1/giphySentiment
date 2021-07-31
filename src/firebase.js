@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyBPwSB-EAAXs-M5eqE4HZywKi1_Et_GO_A',
   authDomain: 'project-4-8e199.firebaseapp.com',
   projectId: 'project-4-8e199',
@@ -15,3 +15,4 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export default firebase;
+

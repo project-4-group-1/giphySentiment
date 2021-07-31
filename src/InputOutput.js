@@ -27,10 +27,8 @@ const Input = () => {
         gallery = res.data.data;
         if (page) {
           setGifGallery(gallery.slice(0, 5));
-          console.log(1);
         } else {
           setGifGallery(gallery.slice(5));
-          console.log(2);
         }
       })
       .catch((err) => {
@@ -50,7 +48,6 @@ const Input = () => {
     };
     dbRef.push(imgObj);
     setGifGallery([]);
-    // dbRef.remove();
     // console.log(e.target);
   };
 
