@@ -25,16 +25,15 @@
 // ******** STRETCH GOALS ********
 
 import firebase from './firebase';
-import axios from 'axios';
 import Header from './Header';
-import Input from './Input';
+import InputOutput from './InputOutput';
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
       <main>
-        <Input />
+        <InputOutput />
       </main>
     </div>
   );
