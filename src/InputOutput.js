@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Display from "./Display";
+import Timeline from "./Timeline";
 import firebase from "./firebase";
 
 const Input = () => {
@@ -34,6 +35,21 @@ const Input = () => {
     // setUserInput("");
   };
 
+  const handleClick = (url, alt, id) => {
+    const dbRef = firebase.database().ref();
+    const imgObj = {
+      url: url,
+      alt: alt,
+      id: id,
+      emotion: userInput,
+      date: Date(),
+    };
+    dbRef.push(imgObj);
+    setGifGallery([]);
+    // dbRef.remove();
+    // console.log(e.target);
+  };
+
   return (
     <div>
       <form action="#" onSubmit={handleSubmit}>
@@ -55,7 +71,14 @@ const Input = () => {
         </button>
       </form>
       <div>
-        <Display gifGallery={gifGallery} userInput={userInput} />
+        <Display
+          gifGallery={gifGallery}
+          userInput={userInput}
+          handleClick={handleClick}
+        />
+      </div>
+      <div>
+        <Timeline />
       </div>
     </div>
   );
