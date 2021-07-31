@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Timeline = () => {
   const [timeLine, setTimeLine] = useState([]);
   const dbRef = firebase.database().ref();
-  // dbRef.remove();
+  //   dbRef.remove();
   useEffect(() => {
     dbRef.on("value", (snapshot) => {
       const myData = snapshot.val();

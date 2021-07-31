@@ -22,16 +22,20 @@ const Input = () => {
         q: userInput,
         limit: 10,
       },
-    }).then((res) => {
-      gallery = res.data.data;
-      if (page) {
-        setGifGallery(gallery.slice(0, 5));
-        console.log(1);
-      } else {
-        setGifGallery(gallery.slice(5));
-        console.log(2);
-      }
-    });
+    })
+      .then((res) => {
+        gallery = res.data.data;
+        if (page) {
+          setGifGallery(gallery.slice(0, 5));
+          console.log(1);
+        } else {
+          setGifGallery(gallery.slice(5));
+          console.log(2);
+        }
+      })
+      .catch((err) => {
+        return alert("We have an error");
+      });
     // setUserInput("");
   };
 

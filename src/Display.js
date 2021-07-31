@@ -17,7 +17,6 @@ const Display = (props) => {
                   gifPic.id
                 );
               }}
-              // onClick={handleClick}
               key={gifPic.id}
               src={gifPic.images.original.url}
               alt={gifPic.title}
