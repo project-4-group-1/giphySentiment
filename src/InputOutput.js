@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Display from "./Display";
+import firebase from "./firebase";
 
 const Input = () => {
   const key = "Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3";
@@ -54,7 +55,7 @@ const Input = () => {
         </button>
       </form>
       <div>
-        <Display gifGallery={gifGallery} />
+        <Display gifGallery={gifGallery} userInput={userInput} />
       </div>
     </div>
   );
