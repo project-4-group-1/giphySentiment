@@ -37,6 +37,8 @@
 import firebase from "./firebase";
 import Header from "./Header";
 import InputOutput from "./InputOutput";
+import "./styles/_header.scss"
+import "./styles/_display.scss"
 
 function App() {
   return (

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&family=Raleway:wght@100;300&display=swap');
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -209,8 +211,12 @@ html {
   box-sizing: inherit;
   text-decoration: none;
   list-style: none;
+  font-family: raleway;
 }
 
+body {
+  background-color:#DDAF94;
+}
 .sr-only {
   position: absolute;
   width: 1px;
