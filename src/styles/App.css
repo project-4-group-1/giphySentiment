@@ -308,6 +308,7 @@ img {
 }
 
 button {
+  width: 90px;
   border: none;
   background-color: #ddaf94;
   color: #266150;
@@ -339,12 +340,20 @@ button:focus-visible {
   left: 0;
   width: 100%;
   height: 100%;
-  padding-top: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   background-color: #2661509d;
+  color: #ddaf94;
   opacity: 0;
   z-index: -1;
   border-radius: 10px;
   transition: all 0.3s ease-in;
+}
+
+.moodDetails h3 {
+  color: #fdf8f5;
 }
 
 span.vertical-timeline-element-icon {
@@ -352,7 +361,6 @@ span.vertical-timeline-element-icon {
 }
 
 .timeline .vertical-timeline-element-content {
-  text-align: center;
   background-color: #4f4846;
   box-shadow: none;
   color: #fdf8f5;

@@ -37,67 +37,68 @@ const Timeline = () => {
   };
 
   return (
-    // <div className="timeline">
-    //   <VerticalTimeline>
-    //     {timeLine.map((mood) => {
-    //       console.log(timeLine);
-    //       console.log(mood);
-    //       return (
-    //         <VerticalTimelineElement
-    //           key={mood.key}
-    //           date={mood.date.substr(0, 16)}
-    //           dateClassName="date"
-    //           iconClassName="icon"
-    //           emotion={mood.emotion}
-    //         >
-
-    //           <h3 className="vertical-timeline-element-title">
-    //             {mood.emotion}
-    //           </h3>
-    //           <img src={mood.url} alt={mood.alt} className="timelineImg" />
-    //           <button
-    //             onClick={() => {
-    //               handleDelete(mood.key);
-    //             }}
-    //           >
-    //             🗑
-    //           </button>
-    //         </VerticalTimelineElement>
-    //       );
-    //     })}
-    //   </VerticalTimeline>
-    // </div>
-    <ul className="timeline">
-      {timeLine.map((mood) => {
-        // console.log(mood);
-        return (
-          // <li key={mood.key}>
-          <li tabIndex={1} key={mood.key}>
-            <VerticalTimeline>
-              <VerticalTimelineElement>
-                <img src={mood.url} alt={mood.alt} className="timelineImg" />
-                <div className="moodDetails">
-                  <h3 className="vertical-timeline-element-title">
-                    {mood.emotion}
-                  </h3>
-                  <h3 className="vertical-timeline-element-title">
-                    {mood.date}
-                  </h3>
-                  <button
-                    tabIndex={1}
-                    onClick={() => {
-                      handleDelete(mood.key);
-                    }}
-                  >
-                    Remove
-                  </button>
-                </div>
-              </VerticalTimelineElement>
-            </VerticalTimeline>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="timeline">
+      <VerticalTimeline>
+        {timeLine.map((mood) => {
+          console.log(timeLine);
+          console.log(mood);
+          return (
+            <VerticalTimelineElement
+              key={mood.key}
+              date={mood.date.substr(0, 16)}
+              dateClassName="date"
+              iconClassName="icon"
+              emotion={mood.emotion}
+            >
+              <img src={mood.url} alt={mood.alt} className="timelineImg" />
+              <div className="moodDetails">
+                <h3 className="vertical-timeline-element-title">
+                  {mood.emotion}
+                </h3>
+                <button
+                  onClick={() => {
+                    handleDelete(mood.key);
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            </VerticalTimelineElement>
+          );
+        })}
+      </VerticalTimeline>
+    </div>
+    // <ul className="timeline">
+    //   {timeLine.map((mood) => {
+    //     // console.log(mood);
+    //     return (
+    //       // <li key={mood.key}>
+    //       <li tabIndex={1} key={mood.key}>
+    //         <VerticalTimeline>
+    //           <VerticalTimelineElement>
+    //             <img src={mood.url} alt={mood.alt} className="timelineImg" />
+    //             <div className="moodDetails">
+    //               <h3 className="vertical-timeline-element-title">
+    //                 {mood.emotion}
+    //               </h3>
+    //               <h3 className="vertical-timeline-element-title">
+    //                 {mood.date}
+    //               </h3>
+    //               <button
+    //                 tabIndex={1}
+    //                 onClick={() => {
+    //                   handleDelete(mood.key);
+    //                 }}
+    //               >
+    //                 Remove
+    //               </button>
+    //             </div>
+    //           </VerticalTimelineElement>
+    //         </VerticalTimeline>
+    //       </li>
+    //     );
+    //   })}
+    // </ul>
   );
 };
 
