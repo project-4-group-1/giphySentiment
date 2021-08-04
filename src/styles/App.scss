@@ -1,4 +1,9 @@
-@import "./_setup.scss";
-@import "./general";
-@import "./inputs";
-@import "./timeline";
+@import './_setup.scss';
+@import './general';
+@import './inputs';
+@import './timeline';
+@import './buttons';
+
+html {
+  scroll-behavior: smooth;
+}
