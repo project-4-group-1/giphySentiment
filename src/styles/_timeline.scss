@@ -19,12 +19,14 @@ button:focus-visible {
 }
 
 .timeline {
-  background-color: salmon;
+  position: relative;
 }
+
 
 .timelineImg {
   display: block;
   width: 100%;
+  
   // max-width: 100%;
   margin: auto;
   border-radius: 10px;
@@ -82,14 +84,16 @@ span.vertical-timeline-element-icon {
 //     font-size: 40px;
 // }
 
-.date,
-h3 {
-  color: green;
-  font-size: 2rem !important;
+
+.date, h3{
+    color: #000;
+    font-size: 2rem !important;
 }
-.icon {
-  background-color: salmon;
+.icon{
+    // background-color: salmon;
 }
+
+
 
 h3,
 button {
