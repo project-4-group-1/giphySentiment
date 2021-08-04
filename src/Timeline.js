@@ -1,14 +1,17 @@
 import firebase from "firebase";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
+
+
+
 
 const Timeline = () => {
   const [timeLine, setTimeLine] = useState([]);
+    const [num, setNum] = useState(1);
   const dbRef = firebase.database().ref();
   //   dbRef.remove();
   useEffect(() => {
@@ -40,8 +43,8 @@ const Timeline = () => {
     <div className="timeline">
       <VerticalTimeline>
         {timeLine.map((mood) => {
-          console.log(timeLine);
-          console.log(mood);
+          // console.log(timeLine);
+          // console.log(mood);
           return (
             <VerticalTimelineElement
               key={mood.key}
@@ -49,7 +52,19 @@ const Timeline = () => {
               dateClassName="date"
               iconClassName="icon"
               emotion={mood.emotion}
-            >
+
+//               <h3 className="vertical-timeline-element-title">
+//                 {mood.emotion}
+//               </h3>
+//               <img src={mood.url} alt={mood.alt} className="timelineImg" />
+//               <button
+//                 onClick={() => {
+//                   handleDelete(mood.key);
+//                 }}
+//               >
+//                 <FontAwesomeIcon icon={faTrash} />
+//               </button>
+
               <img src={mood.url} alt={mood.alt} className="timelineImg" />
               <div className="moodDetails">
                 <h3 className="vertical-timeline-element-title">
@@ -63,6 +78,7 @@ const Timeline = () => {
                   Remove
                 </button>
               </div>
+
             </VerticalTimelineElement>
           );
         })}

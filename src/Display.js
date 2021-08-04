@@ -1,21 +1,21 @@
-// import firebase from "./firebase";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const Display = (props) => {
-  const { gifGallery, handleClick, home } = props;
 
+  const { gifGallery, handleClick, num, setNum } = props;
   return (
-    <section className="searchResults wrapper">
-      <h2>Search results:</h2>
-      <div className="resultsContainer">
-        {gifGallery.map((gifPic) => {
+    <section>
+      <h2>Photos</h2>
+      <div className="photos">
+        {gifGallery.slice(num, num + 5).map((gifPic) => {
           return (
-            <div className="imgContainer">
+            <div className="displayImg" key={gifPic.id}>
+
               <img
                 className="resultsGif"
                 onClick={() => {
                   return handleClick(gifPic.images.original.url, gifPic.title, gifPic.id);
                 }}
-                key={gifPic.id}
                 src={gifPic.images.original.url}
                 alt={gifPic.title}
               />
@@ -23,6 +23,28 @@ const Display = (props) => {
           );
         })}
       </div>
+
+      {num <= 4 ? null : (
+        <button
+          className="scroll"
+          onClick={() => {
+            setNum(num - 5);
+          }}
+        >
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      )}
+      {num >= gifGallery.length - 5 ? null : (
+        <button
+          className="scroll"
+          onClick={() => {
+            setNum(num + 5);
+          }}
+        >
+          <FontAwesomeIcon icon={faArrowRight} />
+        </button>
+      )}
+
       <h3>
         Don't like what you see?{' '}
         <span className="link" onClick={() => home.current.scrollIntoView()}>
@@ -30,6 +52,7 @@ const Display = (props) => {
         </span>{' '}
         above!
       </h3>
+
     </section>
   );
 };

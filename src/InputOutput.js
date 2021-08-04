@@ -1,15 +1,17 @@
-import { useState, useRef } from 'react';
-import axios from 'axios';
-import Display from './Display';
-import Timeline from './Timeline';
-import firebase from './firebase';
-import Header from './Header';
 
-const Input = () => {
-  const key = 'Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3';
-  const [userInput, setUserInput] = useState('');
+import { useState } from "react";
+import axios from "axios";
+import Display from "./Display";
+import Timeline from "./Timeline";
+import firebase from "./firebase";
+import Header from "./Header";
+
+
+const InputOutput = () => {
+  const key = "Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3";
+  const [userInput, setUserInput] = useState("");
   const [gifGallery, setGifGallery] = useState([]);
-  const [page, SetPage] = useState(true);
+  const [num, setNum] = useState(0);
 
   const home = useRef(null);
   const results = useRef(null);
@@ -18,27 +20,24 @@ const Input = () => {
     let gallery = [];
     e.preventDefault();
     axios({
-      url: 'https://api.giphy.com/v1/gifs/search',
-      method: 'GET',
-      dataResponse: 'json',
+      url: "https://api.giphy.com/v1/gifs/search",
+      method: "GET",
+      dataResponse: "json",
       params: {
         api_key: key,
         q: userInput,
-        limit: 12,
+        limit: 50,
       },
     })
       .then((res) => {
         gallery = res.data.data;
-        if (page) {
-          setGifGallery(gallery.slice(0, 6));
-        } else {
-          setGifGallery(gallery.slice(6));
-        }
+        setGifGallery(gallery);
+        setNum(0);
+
       })
       .catch((err) => {
-        return alert('The API failed to load!');
+        return alert("The API failed to load!");
       });
-
     results.current.scrollIntoView();
   };
 
@@ -81,7 +80,8 @@ const Input = () => {
         {gifGallery.length ? (
           <Display
             gifGallery={gifGallery}
-            userInput={userInput}
+            num={num} 
+            setNum={setNum}
             handleClick={handleClick}
             home={home}
           />
@@ -93,4 +93,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default InputOutput;
