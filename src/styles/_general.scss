@@ -1,16 +1,35 @@
 
-h1 {
-  color: lightblue;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+img,
+section,
+main,
+figure,
+article,
+aside,
+footer,
+header {
+  padding: 0;
+  margin: 0;
 }
 
-.displayImg {
-  display: flex;
-  img {
-   display:inline-block;
-   width: 350px;
-   height: 350px;
-   object-fit: cover;
-   max-width: 100%;
-   border: 2px black solid;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $blush;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 95%;
+  max-width: 1800px;
 }
