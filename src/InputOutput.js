@@ -1,41 +1,37 @@
-import { useState } from 'react';
-import axios from 'axios';
-import Display from './Display';
-import Timeline from './Timeline';
-import firebase from './firebase';
-import Header from './Header';
+import { useState } from "react";
+import axios from "axios";
+import Display from "./Display";
+import Timeline from "./Timeline";
+import firebase from "./firebase";
+import Header from "./Header";
 
-const Input = () => {
-  const key = 'Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3';
-  const [userInput, setUserInput] = useState('');
+const InputOutput = () => {
+  const key = "Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3";
+  const [userInput, setUserInput] = useState("");
   const [gifGallery, setGifGallery] = useState([]);
-  const [page, SetPage] = useState(true);
+  const [num, setNum] = useState(0);
 
   const handleSubmit = (e) => {
     let gallery = [];
     e.preventDefault();
     axios({
-      url: 'https://api.giphy.com/v1/gifs/search',
-      method: 'GET',
-      dataResponse: 'json',
+      url: "https://api.giphy.com/v1/gifs/search",
+      method: "GET",
+      dataResponse: "json",
       params: {
         api_key: key,
         q: userInput,
-        limit: 10,
+        limit: 50,
       },
     })
       .then((res) => {
         gallery = res.data.data;
-        if (page) {
-          setGifGallery(gallery.slice(0, 5));
-        } else {
-          setGifGallery(gallery.slice(5));
-        }
+        setGifGallery(gallery);
+        setNum(0);
       })
       .catch((err) => {
-        return alert('The API failed to load!');
+        return alert("The API failed to load!");
       });
-    // setUserInput("");
   };
 
   const handleClick = (url, alt, id) => {
@@ -49,7 +45,6 @@ const Input = () => {
     };
     dbRef.push(imgObj);
     setGifGallery([]);
-    // console.log(e.target);
   };
 
   return (
@@ -71,20 +66,13 @@ const Input = () => {
           <button>Search</button>
         </form>
       </header>
-      <div>
-        <button
-          onClick={() => {
-            SetPage(!page);
-          }}
-        >
-          {page ? 'Next Page' : 'Previous Page'}
-        </button>
 
-        <Display gifGallery={gifGallery} userInput={userInput} handleClick={handleClick} />
+      <main>
+        <Display gifGallery={gifGallery} handleClick={handleClick} num={num} setNum={setNum}/>
         <Timeline />
-      </div>
+      </main>
     </>
   );
 };
 
-export default Input;
+export default InputOutput;

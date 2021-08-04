@@ -12,13 +12,17 @@ button {
 }
 
 .timeline {
-  background-color: salmon;
+  position: relative;
 }
 
+.timeline button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 
+}
 .timelineImg {
   display: block;
-  width: 80%;
   // max-width: 100%;
   margin: auto;
 }
@@ -31,7 +35,7 @@ span.vertical-timeline-element-icon {
     border: 4px solid black;
 //   text-align: center;
   width: 35%;
-  background-color: #4f4846;
+  // background-color: #4f4846;
   box-shadow: none;
   color: #fdf8f5;
 }
@@ -44,14 +48,14 @@ span.vertical-timeline-element-icon {
 // }
 
 .date, h3{
-    color: green;
+    color: #000;
     font-size: 2rem !important;
 }
 .icon{
-    background-color: salmon;
+    // background-color: salmon;
 }
 
-h3,button{
+h3{
     text-align: center;
 }
 

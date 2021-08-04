@@ -44,11 +44,10 @@ function App() {
 
   return (
     <div ref={topOfPage}>
-      <main>
         <InputOutput />
         {/* For each button, pass the scroll reference as props*/}
         <Button target={topOfPage} direction={'up'} />{' '}
-      </main>
+        
     </div>
   );
 }
