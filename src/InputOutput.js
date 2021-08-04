@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import Display from './Display';
 import Timeline from './Timeline';
@@ -11,6 +11,9 @@ const Input = () => {
   const [gifGallery, setGifGallery] = useState([]);
   const [page, SetPage] = useState(true);
 
+  const home = useRef(null);
+  const results = useRef(null);
+
   const handleSubmit = (e) => {
     let gallery = [];
     e.preventDefault();
@@ -21,28 +24,28 @@ const Input = () => {
       params: {
         api_key: key,
         q: userInput,
-        limit: 10,
+        limit: 12,
       },
     })
       .then((res) => {
         gallery = res.data.data;
         if (page) {
-          setGifGallery(gallery.slice(0, 5));
+          setGifGallery(gallery.slice(0, 6));
         } else {
-          setGifGallery(gallery.slice(5));
+          setGifGallery(gallery.slice(6));
         }
       })
       .catch((err) => {
         return alert('The API failed to load!');
       });
-    // setUserInput("");
+
+    results.current.scrollIntoView();
   };
 
   const handleClick = (url, alt, id) => {
     const dbRef = firebase.database().ref();
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth()}/${current.getFullYear()}`;
-    // const newDate = new Intl.DateTimeFormat("en-US").format(date);
     const imgObj = {
       url: url,
       alt: alt,
@@ -52,12 +55,11 @@ const Input = () => {
     };
     dbRef.push(imgObj);
     setGifGallery([]);
-    // console.log(e.target);
   };
 
   return (
     <>
-      <header>
+      <header ref={home}>
         <Header />
 
         <form action="#" onSubmit={handleSubmit} className="moodForm wrapper">
@@ -74,18 +76,19 @@ const Input = () => {
           <button>Search</button>
         </form>
       </header>
-      <div>
-        <button
-          onClick={() => {
-            SetPage(!page);
-          }}
-        >
-          {page ? 'Next Page' : 'Previous Page'}
-        </button>
 
-        <Display gifGallery={gifGallery} userInput={userInput} handleClick={handleClick} />
+      <main ref={results}>
+        {gifGallery.length ? (
+          <Display
+            gifGallery={gifGallery}
+            userInput={userInput}
+            handleClick={handleClick}
+            home={home}
+          />
+        ) : null}
+
         <Timeline />
-      </div>
+      </main>
     </>
   );
 };
