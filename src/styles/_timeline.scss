@@ -1,57 +1,99 @@
-
 img {
   width: 100%;
 }
 
 button {
-  border: 2px solid #e8cebf;
+  border: none;
   background-color: #ddaf94;
   color: #266150;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 15px;
+  transition: all 0.3s linear;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: #266150;
+  color: #ddaf94;
 }
 
 .timeline {
   background-color: salmon;
 }
 
-
 .timelineImg {
   display: block;
-  width: 80%;
+  width: 100%;
   // max-width: 100%;
   margin: auto;
+  border-radius: 10px;
 }
+
+.moodDetails {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 30%;
+  background-color: #2661509d;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+}
+
+// .moodDetails:hover {
+//   opacity: 1;
+//   z-index: 2;
+// }
+
 span.vertical-timeline-element-icon {
   box-shadow: 0 0 0 4px #ddaf94, inset 0 2px 0 rgba(0, 0, 0, 0.08),
     0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
-.vertical-timeline-element-content {
-    border: 4px solid black;
-//   text-align: center;
-  width: 35%;
+.timeline .vertical-timeline-element-content {
+  text-align: center;
+  // width: 35%;
   background-color: #4f4846;
   box-shadow: none;
   color: #fdf8f5;
+  padding: 0em;
+  border-radius: 10px;
 }
+
 .vertical-timeline-element-content-arrow {
   border-right: 7px solid #266150;
+  transition: all 0.3s linear;
 }
 
 // .vertical-timeline-element-date{
 //     font-size: 40px;
 // }
 
-.date, h3{
-    color: green;
-    font-size: 2rem !important;
+.date,
+h3 {
+  color: green;
+  font-size: 2rem !important;
 }
-.icon{
-    background-color: salmon;
-}
-
-h3,button{
-    text-align: center;
+.icon {
+  background-color: salmon;
 }
 
+h3,
+button {
+  text-align: center;
+}
+
+.vertical-timeline-element-content:hover .moodDetails,
+.timeline li:focus-visible .moodDetails {
+  opacity: 1;
+  z-index: 2;
+}
+
+.vertical-timeline-element-content:hover
+  .vertical-timeline-element-content-arrow,
+.timeline li:focus-visible .vertical-timeline-element-content-arrow {
+  border-right: 7px solid #ddaf94;
+}
