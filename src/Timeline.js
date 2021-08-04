@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
+
 const Timeline = () => {
   const [timeLine, setTimeLine] = useState([]);
   const dbRef = firebase.database().ref();
@@ -18,7 +19,7 @@ const Timeline = () => {
           url: myData[propName].url,
           date: myData[propName].date,
           emotion: myData[propName].emotion,
-          id: myData[propName].emotion,
+          id: myData[propName].id,
           alt: myData[propName].alt,
         };
         newArray.push(moodObject);
@@ -34,25 +35,38 @@ const Timeline = () => {
   }
 
   return (
-    <ul className="timeline">
-      {timeLine.map((mood) => {
-        // console.log(mood);
-        return (
-          // <li key={mood.key}>
-          <li key={mood.key}>
-            <VerticalTimeline>
-              <VerticalTimelineElement>
-              <h3 className="vertical-timeline-element-title">{mood.emotion}</h3>
-              <h3 className="vertical-timeline-element-title">{mood.date}</h3>
+    <div className="timeline">
+      <VerticalTimeline>
+        {timeLine.map((mood) => {
+          console.log(timeLine);
+          console.log(mood);
+          return (
+            <VerticalTimelineElement
+              key={mood.key}
+              date={mood.date.substr(0, 16)}
+              dateClassName="date"
+              iconClassName="icon"
+              emotion={mood.emotion}
+            >
+              
+              <h3 className="vertical-timeline-element-title">
+                {mood.emotion}
+              </h3>
               <img src={mood.url} alt={mood.alt} className="timelineImg" />
-              <button onClick={()=>{handleDelete(mood.key)}}>🗑</button>
-              </VerticalTimelineElement>
-            </VerticalTimeline>
-          </li>
-        );
-      })}
-    </ul>
+              <button
+                onClick={() => {
+                  handleDelete(mood.key);
+                }}
+              >
+                🗑
+              </button>
+            </VerticalTimelineElement>
+          );
+        })}
+      </VerticalTimeline>
+    </div>
   );
+  
 };
 
 export default Timeline;
