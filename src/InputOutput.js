@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import axios from "axios";
 import Display from "./Display";
@@ -5,11 +6,15 @@ import Timeline from "./Timeline";
 import firebase from "./firebase";
 import Header from "./Header";
 
+
 const InputOutput = () => {
   const key = "Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3";
   const [userInput, setUserInput] = useState("");
   const [gifGallery, setGifGallery] = useState([]);
   const [num, setNum] = useState(0);
+
+  const home = useRef(null);
+  const results = useRef(null);
 
   const handleSubmit = (e) => {
     let gallery = [];
@@ -28,20 +33,24 @@ const InputOutput = () => {
         gallery = res.data.data;
         setGifGallery(gallery);
         setNum(0);
+
       })
       .catch((err) => {
         return alert("The API failed to load!");
       });
+    results.current.scrollIntoView();
   };
 
   const handleClick = (url, alt, id) => {
     const dbRef = firebase.database().ref();
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth()}/${current.getFullYear()}`;
     const imgObj = {
       url: url,
       alt: alt,
       id: id,
       emotion: userInput,
-      date: Date(),
+      date: date,
     };
     dbRef.push(imgObj);
     setGifGallery([]);
@@ -49,7 +58,7 @@ const InputOutput = () => {
 
   return (
     <>
-      <header>
+      <header ref={home}>
         <Header />
 
         <form action="#" onSubmit={handleSubmit} className="moodForm wrapper">
@@ -67,8 +76,17 @@ const InputOutput = () => {
         </form>
       </header>
 
-      <main>
-        <Display gifGallery={gifGallery} handleClick={handleClick} num={num} setNum={setNum}/>
+      <main ref={results}>
+        {gifGallery.length ? (
+          <Display
+            gifGallery={gifGallery}
+            num={num} 
+            setNum={setNum}
+            handleClick={handleClick}
+            home={home}
+          />
+        ) : null}
+
         <Timeline />
       </main>
     </>
