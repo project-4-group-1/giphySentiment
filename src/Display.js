@@ -1,5 +1,4 @@
 // import firebase from "./firebase";
-import { Link } from 'react-router-dom';
 
 const Display = (props) => {
   const { gifGallery, handleClick, home } = props;
