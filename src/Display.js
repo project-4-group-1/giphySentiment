@@ -9,18 +9,20 @@ const Display = (props) => {
       <div className="photos">
         {gifGallery.map((gifPic) => {
           return (
-            <img
-              onClick={() => {
-                return handleClick(
-                  gifPic.images.original.url,
-                  gifPic.title,
-                  gifPic.id
-                );
-              }}
-              key={gifPic.id}
-              src={gifPic.images.original.url}
-              alt={gifPic.title}
-            />
+            <div className="displayImg">
+              <img
+                onClick={() => {
+                  return handleClick(
+                    gifPic.images.original.url,
+                    gifPic.title,
+                    gifPic.id
+                  );
+                }}
+                key={gifPic.id}
+                src={gifPic.images.original.url}
+                alt={gifPic.title}
+              />
+            </div>
           );
         })}
       </div>

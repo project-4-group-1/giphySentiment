@@ -1,6 +1,9 @@
 import firebase from "firebase";
 import { useState, useEffect } from "react";
 
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+
 const Timeline = () => {
   const [timeLine, setTimeLine] = useState([]);
   const dbRef = firebase.database().ref();
@@ -31,15 +34,20 @@ const Timeline = () => {
   }
 
   return (
-    <ul>
+    <ul className="timeline">
       {timeLine.map((mood) => {
         // console.log(mood);
         return (
           // <li key={mood.key}>
-          <li>
-            <img src={mood.url} alt={mood.alt} />;<p>{mood.emotion}</p>
-            <p>{mood.date}</p>
-            <button onClick={()=>{handleDelete(mood.key)}}>🗑</button>
+          <li key={mood.key}>
+            <VerticalTimeline>
+              <VerticalTimelineElement>
+              <h3 className="vertical-timeline-element-title">{mood.emotion}</h3>
+              <h3 className="vertical-timeline-element-title">{mood.date}</h3>
+              <img src={mood.url} alt={mood.alt} className="timelineImg" />
+              <button onClick={()=>{handleDelete(mood.key)}}>🗑</button>
+              </VerticalTimelineElement>
+            </VerticalTimeline>
           </li>
         );
       })}
