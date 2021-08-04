@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Display from "./Display";
-import Timeline from "./Timeline";
-import firebase from "./firebase";
+import { useState } from 'react';
+import axios from 'axios';
+import Display from './Display';
+import Timeline from './Timeline';
+import firebase from './firebase';
+import Header from './Header';
 
 const Input = () => {
-  const key = "Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3";
-  const [userInput, setUserInput] = useState("");
+  const key = 'Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3';
+  const [userInput, setUserInput] = useState('');
   const [gifGallery, setGifGallery] = useState([]);
   const [page, SetPage] = useState(true);
 
@@ -14,9 +15,9 @@ const Input = () => {
     let gallery = [];
     e.preventDefault();
     axios({
-      url: "https://api.giphy.com/v1/gifs/search",
-      method: "GET",
-      dataResponse: "json",
+      url: 'https://api.giphy.com/v1/gifs/search',
+      method: 'GET',
+      dataResponse: 'json',
       params: {
         api_key: key,
         q: userInput,
@@ -32,7 +33,7 @@ const Input = () => {
         }
       })
       .catch((err) => {
-        return alert("We have an error");
+        return alert('The API failed to load!');
       });
     // setUserInput("");
   };
@@ -52,36 +53,37 @@ const Input = () => {
   };
 
   return (
-    <div>
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="search">Search here:</label>
-        <input
-          type="text"
-          id="search"
-          value={userInput}
-          onChange={(e) => {
-            setUserInput(e.target.value);
-          }}
-        />
+    <>
+      <header>
+        <Header />
+
+        <form action="#" onSubmit={handleSubmit} className="moodForm wrapper">
+          <label htmlFor="search">How are you feeling today?</label>
+          <input
+            type="text"
+            id="search"
+            value={userInput}
+            onChange={(e) => {
+              setUserInput(e.target.value);
+            }}
+            placeholder="Happy, excited, etc."
+          />
+          <button>Search</button>
+        </form>
+      </header>
+      <div>
         <button
           onClick={() => {
             SetPage(!page);
           }}
         >
-          {page ? "Next Page" : "Previous Page"}
+          {page ? 'Next Page' : 'Previous Page'}
         </button>
-      </form>
-      <div>
-        <Display
-          gifGallery={gifGallery}
-          userInput={userInput}
-          handleClick={handleClick}
-        />
-      </div>
-      <div>
+
+        <Display gifGallery={gifGallery} userInput={userInput} handleClick={handleClick} />
         <Timeline />
       </div>
-    </div>
+    </>
   );
 };
 

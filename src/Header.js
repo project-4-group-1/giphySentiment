@@ -1,9 +1,15 @@
 const Header = () => {
   return (
-    <header>
-      <h1>GIF IN TOUCH WITH YOUR FEELING</h1>
-      <h2>Intro</h2>
-    </header>
+    <>
+      <h1>— Gif in touch with your feelings! —</h1>
+      <div className="intro wrapper">
+        <h2>Express how you feel using gifs! </h2>
+        <p>
+          In the search bar below, tell us how you’re feeling, then pick the gif that best expresses
+          your emotions. You can also view other users’ emotions below!
+        </p>
+      </div>
+    </>
   );
 };
 

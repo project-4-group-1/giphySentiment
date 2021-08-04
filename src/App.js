@@ -34,16 +34,20 @@
 
 // ******** STRETCH GOALS ********
 
-import firebase from "./firebase";
-import Header from "./Header";
-import InputOutput from "./InputOutput";
+import InputOutput from './InputOutput';
+import Button from './Buttons';
+import { useRef } from 'react';
 
 function App() {
+  // create reference to specific scroll locations on the virtual DOM
+  const topOfPage = useRef(null);
+
   return (
-    <div className="wrapper">
-      <Header />
+    <div ref={topOfPage}>
       <main>
         <InputOutput />
+        {/* For each button, pass the scroll reference as props*/}
+        <Button target={topOfPage} direction={'up'} />{' '}
       </main>
     </div>
   );

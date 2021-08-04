@@ -1,0 +1,75 @@
+header {
+  height: 100vh;
+
+  h1 {
+    background-color: $green;
+    font-family: $quicksand;
+    color: $blush;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: calc(4vw + 10px);
+    padding: 12vh 0;
+    text-align: center;
+  }
+
+  h2 {
+    font-weight: normal;
+    font-size: calc(2vw + 5px);
+    margin: 10px 0;
+    color: $dark;
+  }
+
+  p {
+    font-size: 2vw;
+    color: $dark;
+  }
+}
+
+.intro {
+  padding: 10vh 0 10vh 5vw;
+}
+
+.moodForm {
+  padding-left: 5vw;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+
+  input {
+    background-color: $offwhite;
+    border: none;
+    width: 40vw;
+    height: 40px;
+    color: $dark;
+    font-size: 20px;
+    padding-left: 10px;
+
+    &:focus,
+    &:active {
+      outline: none;
+      border: $tan 1px solid;
+      box-shadow: 0 0 10px $tan;
+    }
+  }
+
+  button {
+    background-color: $green;
+    border: none;
+    margin-left: 10px;
+    height: 40px;
+    padding: 0 20px;
+    color: $offwhite;
+    font-family: $raleway;
+    font-size: 20px;
+    letter-spacing: 1.15px;
+    transition: color 0.2s, background-color 0.2s;
+
+    &:hover {
+      background-color: $tan;
+      color: $dark;
+    }
+  }
+}
