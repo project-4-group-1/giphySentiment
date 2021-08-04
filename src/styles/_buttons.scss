@@ -4,13 +4,14 @@ button.scroll {
   height: 50px;
   border-radius: 50%;
   border: none;
-  background-color: #266150;
-  color: #fdf8f5;
+  background-color: $green;
+  color: $offwhite;
   transition: background-color 0.3s;
 
   &:hover {
     animation: bounce 1s linear infinite;
-    background-color: #ddaf94;
+    background-color: $tan;
+    color: $dark;
   }
 }
 

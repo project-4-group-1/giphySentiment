@@ -1,4 +1,35 @@
+// remove padding and margin from all elements
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+img,
+section,
+main,
+figure,
+article,
+aside,
+footer,
+header {
+  padding: 0;
+  margin: 0;
+}
 
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  background-color: $blush;
+}
 
-
+.wrapper {
+  margin: 0 auto;
+  width: 95%;
+  max-width: 1800px;
+}
