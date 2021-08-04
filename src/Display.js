@@ -1,22 +1,19 @@
 // import firebase from "./firebase";
 
 const Display = (props) => {
-  const { gifGallery, handleClick } = props;
+  const { gifGallery, handleClick, home } = props;
 
   return (
-    <section>
-      <h2>Photos</h2>
-      <div className="photos">
+    <section className="searchResults wrapper">
+      <h2>Search results:</h2>
+      <div className="resultsContainer">
         {gifGallery.map((gifPic) => {
           return (
-            <div className="displayImg">
+            <div className="imgContainer">
               <img
+                className="resultsGif"
                 onClick={() => {
-                  return handleClick(
-                    gifPic.images.original.url,
-                    gifPic.title,
-                    gifPic.id
-                  );
+                  return handleClick(gifPic.images.original.url, gifPic.title, gifPic.id);
                 }}
                 key={gifPic.id}
                 src={gifPic.images.original.url}
@@ -26,6 +23,13 @@ const Display = (props) => {
           );
         })}
       </div>
+      <h3>
+        Don't like what you see?{' '}
+        <span className="link" onClick={() => home.current.scrollIntoView()}>
+          Try another search term
+        </span>{' '}
+        above!
+      </h3>
     </section>
   );
 };
