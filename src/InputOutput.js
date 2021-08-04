@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import Display from "./Display";
 import Timeline from "./Timeline";
