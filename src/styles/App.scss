@@ -1,9 +1,7 @@
-@import './_setup.scss';
+@import './variables';
+@import './setup';
 @import './general';
 @import './inputs';
 @import './timeline';
 @import './buttons';
-
-html {
-  scroll-behavior: smooth;
-}
+@import './header';

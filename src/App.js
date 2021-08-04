@@ -34,7 +34,6 @@
 
 // ******** STRETCH GOALS ********
 
-import Header from './Header';
 import InputOutput from './InputOutput';
 import Button from './Buttons';
 import { useRef } from 'react';
@@ -44,8 +43,7 @@ function App() {
   const topOfPage = useRef(null);
 
   return (
-    <div className="wrapper" ref={topOfPage}>
-      <Header />
+    <div ref={topOfPage}>
       <main>
         <InputOutput />
         {/* For each button, pass the scroll reference as props*/}
