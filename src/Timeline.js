@@ -42,21 +42,26 @@ const Timeline = () => {
         // console.log(mood);
         return (
           // <li key={mood.key}>
-          <li key={mood.key}>
+          <li tabIndex={1} key={mood.key}>
             <VerticalTimeline>
               <VerticalTimelineElement>
                 <img src={mood.url} alt={mood.alt} className="timelineImg" />
-                <h3 className="vertical-timeline-element-title">
-                  {mood.emotion}
-                </h3>
-                <h3 className="vertical-timeline-element-title">{mood.date}</h3>
-                <button
-                  onClick={() => {
-                    handleDelete(mood.key);
-                  }}
-                >
-                  Remove
-                </button>
+                <div className="moodDetails">
+                  <h3 className="vertical-timeline-element-title">
+                    {mood.emotion}
+                  </h3>
+                  <h3 className="vertical-timeline-element-title">
+                    {mood.date}
+                  </h3>
+                  <button
+                    tabIndex={1}
+                    onClick={() => {
+                      handleDelete(mood.key);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
               </VerticalTimelineElement>
             </VerticalTimeline>
           </li>
