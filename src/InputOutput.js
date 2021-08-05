@@ -19,9 +19,9 @@ const InputOutput = () => {
     e.preventDefault();
     if (!/\s/.test(userInput)) {
       axios({
-        url: "https://api.giphy.com/v1/gifs/search",
-        method: "GET",
-        dataResponse: "json",
+        url: 'https://api.giphy.com/v1/gifs/search',
+        method: 'GET',
+        dataResponse: 'json',
         params: {
           api_key: key,
           q: userInput,
@@ -77,9 +77,7 @@ const InputOutput = () => {
             <button>Search</button>
             <div
               className={
-                /\s/.test(userInput) ? "errorWordCheck" : "errorWordHidden"
-              }
-            >
+                /\s/.test(userInput) ? "errorWordCheck" : "errorWordHidden"}>
               <p>Please enter one word</p>
             </div>
           </form>
@@ -100,5 +98,6 @@ const InputOutput = () => {
       </>
     );
  
+
 };
 export default InputOutput;
