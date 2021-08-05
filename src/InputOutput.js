@@ -31,8 +31,12 @@ const InputOutput = () => {
       })
         .then((res) => {
           gallery = res.data.data;
-          setGifGallery(gallery);
-          setNum(0);
+          if (gallery.length < 1) {
+            alert("Invalid search, please try again.");
+          } else {
+            setGifGallery(gallery);
+            setNum(0);
+          }
         })
         .catch((err) => {
           return alert("The API failed to load!");
@@ -92,9 +96,9 @@ const InputOutput = () => {
             setNum={setNum}
             handleClick={handleClick}
             home={home}
-            timeLine = {timeLine}
+            timeLine={timeLine}
           />
-      )  : null}
+        ) : null}
         <div ref={timeLine}>
           <Timeline />
         </div>
