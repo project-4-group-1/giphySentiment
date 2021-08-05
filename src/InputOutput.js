@@ -55,9 +55,7 @@ const InputOutput = () => {
     setGifGallery([]);
   };
 
-  const checkLength = (check) => {
 
-  }
 
   return (
     <>
@@ -65,13 +63,7 @@ const InputOutput = () => {
         <Header />
 
         <form action="#" onSubmit={
-            (handleSubmit,
-            (e) => {
-              e.preventDefault();
-              if (/\s/.test(userInput)){
-                ("#wordError").show()
-              }
-            })
+            (handleSubmit)
           } className="moodForm wrapper">
           <label htmlFor="search">How are you feeling today?</label>
           <input
@@ -83,13 +75,19 @@ const InputOutput = () => {
             }}
             placeholder="Happy, excited, etc."
           />
-          <span id="wordError">Please enter one word</span>
           <button>Search</button>
         </form>
       </header>
 
       <main ref={results}>
-        {gifGallery.length ? (
+        { 
+        
+        /\s/.test(userInput) ?
+        <div className="errorWordCheck">
+          <p>Please enter one word</p>
+        </div>
+          :
+        gifGallery.length ? (
           <Display
             gifGallery={gifGallery}
             num={num} 
@@ -97,8 +95,9 @@ const InputOutput = () => {
             handleClick={handleClick}
             home={home}
           />
-        ) : null}
+        ) : null
 
+        }
         <Timeline />
       </main>
     </>
