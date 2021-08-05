@@ -1,5 +1,5 @@
 header {
-  height: 100vh;
+  min-height: 100vh;
 
   h1 {
     background-color: $green;
@@ -7,20 +7,19 @@ header {
     color: $blush;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: calc(4vw + 10px);
-    padding: 12vh 0;
-    text-align: center;
+    font-size: calc(2vw + 30px);
+    padding: calc(12vh + 30px) 0 15px 10vw;
   }
 
   h2 {
     font-weight: normal;
-    font-size: calc(2vw + 5px);
-    margin: 10px 0;
+    font-size: calc(1vw + 20px);
+    margin: 15px 0;
     color: $dark;
   }
 
   p {
-    font-size: 2vw;
+    font-size: calc(1vw + 15px);
     color: $dark;
   }
 }
@@ -34,14 +33,15 @@ header {
 
   label {
     display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
+    margin-bottom: 10px;
+    font-size: calc(1vw + 15px);
+    color: $dark;
   }
 
   input {
     background-color: $offwhite;
     border: none;
-    width: 40vw;
+    width: 600px;
     height: 40px;
     color: $dark;
     font-size: 20px;

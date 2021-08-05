@@ -9,20 +9,30 @@ button.scroll {
   transition: background-color 0.3s;
   
   &:hover {
-    animation: bounce 1s linear infinite;
-    background-color: $tan;
+    background-color: $blush;
     color: $dark;
   }
 }
 
-.scrollUp {
+
+button.scrollUp {
   position: fixed;
   bottom: 15px;
   right: 20px;
+  &:hover {
+    animation: upBounce 1s linear infinite;
+    background-color: $tan;
+  }
 }
 
+button.scrollLeftRight {
+  &:hover {
+    animation: horizontalBounce 1s linear infinite;
+  }
+}
 
-@keyframes bounce {
+@keyframes upBounce {
+
   0%,
   50% {
     transform: translateY(0px);
@@ -34,5 +44,20 @@ button.scroll {
 
   75% {
     transform: translateY(10px);
+  }
+}
+
+@keyframes horizontalBounce {
+  0%,
+  50% {
+    transform: translateZ(0px);
+  }
+
+  25% {
+    transform: translateZ(10px);
+  }
+
+  75% {
+    transform: translateZ(-10px);
   }
 }
