@@ -17,28 +17,29 @@ const InputOutput = () => {
   const handleSubmit = (e) => {
     let gallery = [];
     e.preventDefault();
-    if (!/\s/.test(userInput)){
+    if (!/\s/.test(userInput)) {
       axios({
-        url: "https://api.giphy.com/v1/gifs/search",
-        method: "GET",
-        dataResponse: "json",
+        url: 'https://api.giphy.com/v1/gifs/search',
+        method: 'GET',
+        dataResponse: 'json',
         params: {
           api_key: key,
           q: userInput,
           limit: 50,
         },
       })
-      .then((res) => {
-        gallery = res.data.data;
-        setGifGallery(gallery);
-        setNum(0);
-      })
-      .catch((err) => {
-        return alert('The API failed to load!');
-      });  
+        .then((res) => {
+          gallery = res.data.data;
+          setGifGallery(gallery);
+          setNum(0);
+        })
+        .catch((err) => {
+          return alert('The API failed to load!');
+        });
 
-    setUserInput('');
-    results.current.scrollIntoView();
+      setUserInput('');
+      results.current.scrollIntoView();
+    }
   };
 
   const handleClick = (url, alt, id) => {
@@ -58,9 +59,7 @@ const InputOutput = () => {
     <>
       <header ref={home}>
         <Header />
-        <form action="#" onSubmit={
-            (handleSubmit)
-          } className="moodForm wrapper userForm">
+        <form action="#" onSubmit={handleSubmit} className="moodForm wrapper userForm">
           <label htmlFor="search">How are you feeling today?</label>
           <input
             type="text"
@@ -72,15 +71,14 @@ const InputOutput = () => {
             placeholder="Happy, excited, etc."
           />
           <button>Search</button>
-          <div className= { /\s/.test(userInput) ? "errorWordCheck" : "errorWordHidden" }>
-          <p>Please enter one word</p>
+          <div className={/\s/.test(userInput) ? 'errorWordCheck' : 'errorWordHidden'}>
+            <p>Please enter one word</p>
           </div>
         </form>
       </header>
 
       <main ref={results}>
-        {     
-        gifGallery.length ? (
+        {gifGallery.length ? (
           <Display
             gifGallery={gifGallery}
             num={num}
@@ -88,12 +86,10 @@ const InputOutput = () => {
             handleClick={handleClick}
             home={home}
           />
-        ) : null
-        }
+        ) : null}
         <Timeline />
       </main>
     </>
   );
 };
-
 export default InputOutput;
