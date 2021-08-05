@@ -33,8 +33,9 @@ header {
 
   label {
     display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
+    margin-bottom: 10px;
+    font-size: calc(1vw + 15px);
+    color: $dark;
   }
 
   input {

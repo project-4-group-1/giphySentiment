@@ -9,7 +9,7 @@ button.scroll {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: $tan;
+    background-color: $blush;
     color: $dark;
   }
 }
@@ -17,6 +17,7 @@ button.scroll {
 button.scrollUp {
   &:hover {
     animation: upBounce 1s linear infinite;
+    background-color: $tan;
   }
 }
 

@@ -1,14 +1,13 @@
-import { useState, useRef } from "react";
-import axios from "axios";
-import Display from "./Display";
-import Timeline from "./Timeline";
-import firebase from "./firebase";
-import Header from "./Header";
-
+import { useState, useRef } from 'react';
+import axios from 'axios';
+import Display from './Display';
+import Timeline from './Timeline';
+import firebase from './firebase';
+import Header from './Header';
 
 const InputOutput = () => {
-  const key = "Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3";
-  const [userInput, setUserInput] = useState("");
+  const key = 'Tmc6n4YWz2HNYzlcSDb5TkxMt3PCNbO3';
+  const [userInput, setUserInput] = useState('');
   const [gifGallery, setGifGallery] = useState([]);
   const [num, setNum] = useState(0);
 
@@ -19,9 +18,9 @@ const InputOutput = () => {
     let gallery = [];
     e.preventDefault();
     axios({
-      url: "https://api.giphy.com/v1/gifs/search",
-      method: "GET",
-      dataResponse: "json",
+      url: 'https://api.giphy.com/v1/gifs/search',
+      method: 'GET',
+      dataResponse: 'json',
       params: {
         api_key: key,
         q: userInput,
@@ -32,11 +31,12 @@ const InputOutput = () => {
         gallery = res.data.data;
         setGifGallery(gallery);
         setNum(0);
-
       })
       .catch((err) => {
-        return alert("The API failed to load!");
+        return alert('The API failed to load!');
       });
+
+    setUserInput('');
     results.current.scrollIntoView();
   };
 
@@ -49,7 +49,7 @@ const InputOutput = () => {
       alt: alt,
       id: id,
       emotion: userInput,
-      date: Date().substr(0,16),
+      date: Date().substr(0, 16),
     };
     dbRef.push(imgObj);
     setGifGallery([]);
@@ -79,7 +79,7 @@ const InputOutput = () => {
         {gifGallery.length ? (
           <Display
             gifGallery={gifGallery}
-            num={num} 
+            num={num}
             setNum={setNum}
             handleClick={handleClick}
             home={home}
