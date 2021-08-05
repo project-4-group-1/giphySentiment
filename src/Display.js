@@ -10,7 +10,7 @@ const Display = (props) => {
           {/* left button */}
           {num <= 4 ? null : (
             <button
-              className="scroll"
+              className="scroll resultsButton"
               onClick={() => {
                 setNum(num - 5);
               }}
@@ -46,7 +46,6 @@ const Display = (props) => {
             </button>
           )}
         </div>
-
       </div>
 
       <h3>
