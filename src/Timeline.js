@@ -84,37 +84,6 @@ const Timeline = () => {
           })}
         </VerticalTimeline>
     </div>
-    // <ul className="timeline">
-    //   {timeLine.map((mood) => {
-    //     // console.log(mood);
-    //     return (
-    //       // <li key={mood.key}>
-    //       <li tabIndex={1} key={mood.key}>
-    //         <VerticalTimeline>
-    //           <VerticalTimelineElement>
-    //             <img src={mood.url} alt={mood.alt} className="timelineImg" />
-    //             <div className="moodDetails">
-    //               <h3 className="vertical-timeline-element-title">
-    //                 {mood.emotion}
-    //               </h3>
-    //               <h3 className="vertical-timeline-element-title">
-    //                 {mood.date}
-    //               </h3>
-    //               <button
-    //                 tabIndex={1}
-    //                 onClick={() => {
-    //                   handleDelete(mood.key);
-    //                 }}
-    //               >
-    //                 Remove
-    //               </button>
-    //             </div>
-    //           </VerticalTimelineElement>
-    //         </VerticalTimeline>
-    //       </li>
-    //     );
-    //   })}
-    // </ul>
   );
 };
 

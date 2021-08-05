@@ -18,6 +18,7 @@ button.scrollUp {
   position: fixed;
   bottom: 15px;
   right: 20px;
+  z-index: 2;
   &:hover {
     animation: upBounce 1s linear infinite;
     background-color: $tan;
@@ -59,3 +60,4 @@ button.resultsButton {
     transform: translateX(-5px);
   }
 }
+

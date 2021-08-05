@@ -17,16 +17,17 @@ const InputOutput = () => {
   const handleSubmit = (e) => {
     let gallery = [];
     e.preventDefault();
-    axios({
-      url: 'https://api.giphy.com/v1/gifs/search',
-      method: 'GET',
-      dataResponse: 'json',
-      params: {
-        api_key: key,
-        q: userInput,
-        limit: 50,
-      },
-    })
+    if (!/\s/.test(userInput)){
+      axios({
+        url: "https://api.giphy.com/v1/gifs/search",
+        method: "GET",
+        dataResponse: "json",
+        params: {
+          api_key: key,
+          q: userInput,
+          limit: 50,
+        },
+      })
       .then((res) => {
         gallery = res.data.data;
         setGifGallery(gallery);
@@ -34,7 +35,7 @@ const InputOutput = () => {
       })
       .catch((err) => {
         return alert('The API failed to load!');
-      });
+      });  
 
     setUserInput('');
     results.current.scrollIntoView();
@@ -42,8 +43,6 @@ const InputOutput = () => {
 
   const handleClick = (url, alt, id) => {
     const dbRef = firebase.database().ref();
-    // const current = new Date();
-    // const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     const imgObj = {
       url: url,
       alt: alt,
@@ -55,16 +54,13 @@ const InputOutput = () => {
     setGifGallery([]);
   };
 
-
-
   return (
     <>
       <header ref={home}>
         <Header />
-
         <form action="#" onSubmit={
             (handleSubmit)
-          } className="moodForm wrapper">
+          } className="moodForm wrapper userForm">
           <label htmlFor="search">How are you feeling today?</label>
           <input
             type="text"
@@ -76,17 +72,14 @@ const InputOutput = () => {
             placeholder="Happy, excited, etc."
           />
           <button>Search</button>
+          <div className= { /\s/.test(userInput) ? "errorWordCheck" : "errorWordHidden" }>
+          <p>Please enter one word</p>
+          </div>
         </form>
       </header>
 
       <main ref={results}>
-        { 
-        
-        /\s/.test(userInput) ?
-        <div className="errorWordCheck">
-          <p>Please enter one word</p>
-        </div>
-          :
+        {     
         gifGallery.length ? (
           <Display
             gifGallery={gifGallery}
@@ -96,7 +89,6 @@ const InputOutput = () => {
             home={home}
           />
         ) : null
-
         }
         <Timeline />
       </main>

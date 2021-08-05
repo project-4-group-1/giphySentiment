@@ -1,0 +1,13 @@
+header .userForm {
+    position: relative;
+}
+
+.errorWordCheck {
+    position: absolute;
+    top: 80px;
+}
+
+.errorWordHidden {
+    height: 0px;
+    overflow: hidden;
+}
