@@ -40,23 +40,23 @@ const Timeline = () => {
 
   return (
     <div className="timeline">
-      <VerticalTimeline>
-        {timeLine.map((mood) => {
-          // console.log(timeLine);
-          // console.log(mood);
-          return (
-            <VerticalTimelineElement
-              key={mood.key}
-              date={mood.date.substr(0, 16)}
-              dateClassName="date"
-              iconClassName="icon"
-              emotion={mood.emotion}
-            >
-              {/* <h3 className="vertical-timeline-element-title">
+        <VerticalTimeline>
+          {timeLine.map((mood) => {
+            // console.log(timeLine);
+            // console.log(mood);
+            return (
+              <VerticalTimelineElement
+                key={mood.key}
+                date={mood.date.substr(0, 16)}
+                dateClassName="date"
+                iconClassName="icon"
+                emotion={mood.emotion}
+              >
+                {/* <h3 className="vertical-timeline-element-title">
                 {mood.emotion}
               </h3> */}
-              <img src={mood.url} alt={mood.alt} className="timelineImg" />
-              {/* <button
+                <img src={mood.url} alt={mood.alt} className="timelineImg" />
+                {/* <button
                 onClick={() => {
                   handleDelete(mood.key);
                 }}
@@ -64,22 +64,22 @@ const Timeline = () => {
                 <FontAwesomeIcon icon={faTrash} />
               </button> */}
 
-              <div className="moodDetails">
-                <h3 className="vertical-timeline-element-title">
-                  {mood.emotion}
-                </h3>
-                <button
-                  onClick={() => {
-                    handleDelete(mood.key);
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
-            </VerticalTimelineElement>
-          );
-        })}
-      </VerticalTimeline>
+                <div className="moodDetails">
+                  <h3 className="vertical-timeline-element-title">
+                    {mood.emotion}
+                  </h3>
+                  <button
+                    onClick={() => {
+                      handleDelete(mood.key);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </VerticalTimelineElement>
+            );
+          })}
+        </VerticalTimeline>
     </div>
     // <ul className="timeline">
     //   {timeLine.map((mood) => {

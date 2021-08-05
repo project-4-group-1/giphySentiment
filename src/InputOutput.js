@@ -42,14 +42,14 @@ const InputOutput = () => {
 
   const handleClick = (url, alt, id) => {
     const dbRef = firebase.database().ref();
-    const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth()}/${current.getFullYear()}`;
+    // const current = new Date();
+    // const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     const imgObj = {
       url: url,
       alt: alt,
       id: id,
       emotion: userInput,
-      date: date,
+      date: Date().substr(0,16),
     };
     dbRef.push(imgObj);
     setGifGallery([]);
