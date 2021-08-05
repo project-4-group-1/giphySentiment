@@ -63,6 +63,7 @@ button:focus-visible {
 span.vertical-timeline-element-icon {
   box-shadow: 0 0 0 4px #ddaf94, inset 0 2px 0 rgba(0, 0, 0, 0.08),
     0 3px 0 4px rgba(0, 0, 0, 0.05);
+  visibility: hidden;
 }
 
 .timeline .vertical-timeline-element-content {
@@ -106,4 +107,10 @@ button {
   .vertical-timeline-element-content-arrow,
 .timeline li:focus-visible .vertical-timeline-element-content-arrow {
   border-right: 7px solid #ddaf94;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 20px 0;
 }

@@ -8,7 +8,7 @@ const Button = (props) => {
 
   return (
     <div>
-      <button className="scroll" onClick={handleScroll}>
+      <button className="scroll scrollUp" onClick={handleScroll}>
         {direction === 'up' ? (
           <FontAwesomeIcon icon={faArrowUp} />
         ) : (

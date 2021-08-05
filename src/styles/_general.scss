@@ -33,3 +33,17 @@ body {
   width: 90%;
   max-width: 1800px;
 }
+
+.footer {
+  margin-top: 40px;
+  background-color: $green;
+  height: 40px;
+  p{
+    text-align: center;
+    padding-top: 15px;
+  }
+  a{
+    color: black;
+    
+  }
+}

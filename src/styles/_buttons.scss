@@ -7,14 +7,18 @@ button.scroll {
   background-color: $green;
   color: $offwhite;
   transition: background-color 0.3s;
-
+  
   &:hover {
     background-color: $blush;
     color: $dark;
   }
 }
 
+
 button.scrollUp {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
   &:hover {
     animation: upBounce 1s linear infinite;
     background-color: $tan;
@@ -28,6 +32,7 @@ button.scrollLeftRight {
 }
 
 @keyframes upBounce {
+
   0%,
   50% {
     transform: translateY(0px);

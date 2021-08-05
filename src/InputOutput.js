@@ -55,12 +55,16 @@ const InputOutput = () => {
     setGifGallery([]);
   };
 
+
+
   return (
     <>
       <header ref={home}>
         <Header />
 
-        <form action="#" onSubmit={handleSubmit} className="moodForm wrapper">
+        <form action="#" onSubmit={
+            (handleSubmit)
+          } className="moodForm wrapper">
           <label htmlFor="search">How are you feeling today?</label>
           <input
             type="text"
@@ -76,7 +80,14 @@ const InputOutput = () => {
       </header>
 
       <main ref={results}>
-        {gifGallery.length ? (
+        { 
+        
+        /\s/.test(userInput) ?
+        <div className="errorWordCheck">
+          <p>Please enter one word</p>
+        </div>
+          :
+        gifGallery.length ? (
           <Display
             gifGallery={gifGallery}
             num={num}
@@ -84,8 +95,9 @@ const InputOutput = () => {
             handleClick={handleClick}
             home={home}
           />
-        ) : null}
+        ) : null
 
+        }
         <Timeline />
       </main>
     </>

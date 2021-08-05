@@ -6,7 +6,7 @@ const Header = () => {
         <h2>Express how you feel using gifs! </h2>
         <p>
           In the search bar below, tell us how you’re feeling, then pick the gif that best expresses
-          your emotions. You can also view other users’ emotions below!
+          your emotions. You can also view other users’ emotions on the timeline below!
         </p>
       </div>
     </>

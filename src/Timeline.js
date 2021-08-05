@@ -26,7 +26,7 @@ const Timeline = () => {
           id: myData[propName].id,
           alt: myData[propName].alt,
         };
-        newArray.push(moodObject);
+        newArray.unshift(moodObject);
         // console.log(moodObject);
       }
       setTimeLine(newArray);
@@ -40,6 +40,8 @@ const Timeline = () => {
 
   return (
     <div className="timeline">
+      <h2>Timeline</h2>
+      <p></p>
         <VerticalTimeline>
           {timeLine.map((mood) => {
             // console.log(timeLine);
@@ -51,6 +53,7 @@ const Timeline = () => {
                 dateClassName="date"
                 iconClassName="icon"
                 emotion={mood.emotion}
+                tabIndex={0}
               >
                 {/* <h3 className="vertical-timeline-element-title">
                 {mood.emotion}

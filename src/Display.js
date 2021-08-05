@@ -37,7 +37,7 @@ const Display = (props) => {
           {/* right button */}
           {num >= gifGallery.length - 5 ? null : (
             <button
-              className="scroll"
+              className="scroll resultsButton"
               onClick={() => {
                 setNum(num + 5);
               }}
@@ -46,6 +46,7 @@ const Display = (props) => {
             </button>
           )}
         </div>
+
       </div>
 
       <h3>
