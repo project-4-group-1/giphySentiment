@@ -35,9 +35,8 @@ const Timeline = () => {
   };
 
   return (
-    <div className="timeline">
+    <div className="timeline" id="timeline">
       <h2>Timeline</h2>
-      <p></p>
       <VerticalTimeline>
         {timeLine.map((mood) => {
           return (

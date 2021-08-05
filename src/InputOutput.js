@@ -13,15 +13,16 @@ const InputOutput = () => {
 
   const home = useRef(null);
   const results = useRef(null);
+  const timeLine = useRef(null);
 
   const handleSubmit = (e) => {
     let gallery = [];
     e.preventDefault();
     if (!/\s/.test(userInput)) {
       axios({
-        url: 'https://api.giphy.com/v1/gifs/search',
-        method: 'GET',
-        dataResponse: 'json',
+        url: "https://api.giphy.com/v1/gifs/search",
+        method: "GET",
+        dataResponse: "json",
         params: {
           api_key: key,
           q: userInput,
@@ -36,68 +37,69 @@ const InputOutput = () => {
         .catch((err) => {
           return alert("The API failed to load!");
         });
-
-      setUserInput("");
       results.current.scrollIntoView();
     }
   };
-  
-    const handleClick = (url, alt, id) => {
-      const dbRef = firebase.database().ref();
-      const imgObj = {
-        url: url,
-        alt: alt,
-        id: id,
-        emotion: userInput,
-        date: Date().substr(0, 16),
-      };
-      dbRef.push(imgObj);
-      setGifGallery([]);
+
+  const handleClick = (url, alt, id) => {
+    const dbRef = firebase.database().ref();
+    const imgObj = {
+      url: url,
+      alt: alt,
+      id: id,
+      emotion: userInput,
+      date: Date().substr(0, 16),
     };
+    dbRef.push(imgObj);
+    timeLine.current.scrollIntoView();
+  };
 
-    return (
-      <>
-        <header ref={home}>
-          <Header />
-          <form
-            action="#"
-            onSubmit={handleSubmit}
-            className="moodForm wrapper userForm"
+  return (
+    <>
+      <header ref={home}>
+        <Header />
+        <form
+          action="#"
+          onSubmit={handleSubmit}
+          className="moodForm wrapper userForm"
+        >
+          <label htmlFor="search">How are you feeling today?</label>
+          <input
+            type="text"
+            id="search"
+            value={userInput}
+            onChange={(e) => {
+              setUserInput(e.target.value);
+            }}
+            placeholder="Happy, excited, etc."
+          />
+          <button>Search</button>
+          <div
+            className={
+              /\s/.test(userInput) ? "errorWordCheck" : "errorWordHidden"
+            }
           >
-            <label htmlFor="search">How are you feeling today?</label>
-            <input
-              type="text"
-              id="search"
-              value={userInput}
-              onChange={(e) => {
-                setUserInput(e.target.value);
-              }}
-              placeholder="Happy, excited, etc."
-            />
-            <button>Search</button>
-            <div
-              className={
-                /\s/.test(userInput) ? "errorWordCheck" : "errorWordHidden"}>
-              <p>Please enter one word</p>
-            </div>
-          </form>
-        </header>
+            <p>Please enter one word</p>
+          </div>
+        </form>
+      </header>
 
-        <main ref={results}>
-          {gifGallery.length ? (
-            <Display
-              gifGallery={gifGallery}
-              num={num}
-              setNum={setNum}
-              handleClick={handleClick}
-              home={home}
-            />
-          ) : null}
+      <main ref={results}>
+        {gifGallery.length ? (
+          <Display
+            gifGallery={gifGallery}
+            num={num}
+            setNum={setNum}
+            handleClick={handleClick}
+            home={home}
+            timeLine = {timeLine}
+          />
+      )  : null}
+        <div ref={timeLine}>
           <Timeline />
-        </main>
-      </>
-    );
- 
-
+        </div>
+      </main>
+    </>
+  );
 };
 export default InputOutput;

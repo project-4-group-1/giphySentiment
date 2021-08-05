@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Display = (props) => {
-  const { gifGallery, handleClick, num, setNum, home } = props;
+  const { gifGallery, handleClick, num, setNum, home} = props;
   return (
     <section className="searchResults">
       <div className="wrapper">
@@ -26,7 +26,11 @@ const Display = (props) => {
                   <img
                     className="resultsGif"
                     onClick={() => {
-                      return handleClick(gifPic.images.original.url, gifPic.title, gifPic.id);
+                      return handleClick(
+                        gifPic.images.original.url,
+                        gifPic.title,
+                        gifPic.id
+                      );
                     }}
                     src={gifPic.images.original.url}
                     alt={gifPic.title}
@@ -50,10 +54,10 @@ const Display = (props) => {
       </div>
 
       <h3>
-        Don't like what you see?{' '}
+        Don't like what you see?{" "}
         <span className="link" onClick={() => home.current.scrollIntoView()}>
           Try another search term
-        </span>{' '}
+        </span>{" "}
         above!
       </h3>
     </section>
