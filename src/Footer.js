@@ -1,12 +1,10 @@
 const Footer = () => {
   return (
     <>
-      <div className="footer wrapper">
+      <div className="footer">
         <p>
-          Create by Accacia Benjamin, Michael Li, QiQi Liau, Shaurya Dubey at
-          <span>
-            <a href="https://junocollege.com"> Juno College</a>
-          </span>©2021.
+          Created by Accacia Benjamin, Michael Li, QiQi Liau, Shaurya Dubey at
+            <a href="https://junocollege.com"> Juno College</a> ©2021.
         </p>
       </div>
     </>

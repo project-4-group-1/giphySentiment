@@ -37,22 +37,20 @@
 import InputOutput from './InputOutput';
 import Button from './Buttons';
 import { useRef } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import Footer from './Footer';
+import './styles/App.scss';
 
 function App() {
   // create reference to specific scroll locations on the virtual DOM
   const topOfPage = useRef(null);
 
   return (
-    <Router>
       <div ref={topOfPage}>
-        <InputOutput />
         {/* For each button, pass the scroll reference as props*/}
-        <Button target={topOfPage} direction={"up"} />{" "}
-      </div>
+        <Button target={topOfPage} direction={"up"} />
+        <InputOutput />
       <Footer />
-    </Router>
+      </div>
   );
 }
 

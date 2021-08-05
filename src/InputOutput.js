@@ -55,12 +55,24 @@ const InputOutput = () => {
     setGifGallery([]);
   };
 
+  const checkLength = (check) => {
+
+  }
+
   return (
     <>
       <header ref={home}>
         <Header />
 
-        <form action="#" onSubmit={handleSubmit} className="moodForm wrapper">
+        <form action="#" onSubmit={
+            (handleSubmit,
+            (e) => {
+              e.preventDefault();
+              if (/\s/.test(userInput)){
+                ("#wordError").show()
+              }
+            })
+          } className="moodForm wrapper">
           <label htmlFor="search">How are you feeling today?</label>
           <input
             type="text"
@@ -71,6 +83,7 @@ const InputOutput = () => {
             }}
             placeholder="Happy, excited, etc."
           />
+          <span id="wordError">Please enter one word</span>
           <button>Search</button>
         </form>
       </header>

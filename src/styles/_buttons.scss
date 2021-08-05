@@ -7,13 +7,20 @@ button.scroll {
   background-color: $green;
   color: $offwhite;
   transition: background-color 0.3s;
-
+  
   &:hover {
     animation: bounce 1s linear infinite;
     background-color: $tan;
     color: $dark;
   }
 }
+
+.scrollUp {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+}
+
 
 @keyframes bounce {
   0%,
