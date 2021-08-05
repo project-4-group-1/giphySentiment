@@ -37,13 +37,15 @@ body {
 .footer {
   margin-top: 40px;
   background-color: $green;
-  height: 40px;
-  p{
+  width: 100%;
+
+  p {
     text-align: center;
     padding-top: 15px;
+    color: $offwhite;
   }
-  a{
+
+  a {
     color: black;
-    
   }
 }
