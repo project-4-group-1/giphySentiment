@@ -20,4 +20,13 @@
       margin: 0;
     }
   }
+
+  .searchResults h3 {
+    font-size: calc(1vw + 20px) !important;
+    margin-top: 20px;
+  }
+
+  button.scroll {
+    display: none;
+  }
 }
