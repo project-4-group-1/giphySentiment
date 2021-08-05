@@ -22,7 +22,6 @@ button:focus-visible {
   position: relative;
 }
 
-
 .timelineImg {
   display: block;
   width: 100%;
@@ -69,7 +68,7 @@ span.vertical-timeline-element-icon {
 .timeline .vertical-timeline-element-content {
   // text-align: center;
   // width: 35%;
-  background-color: #4f4846;
+  background-color: $green;
   box-shadow: none;
   color: #fdf8f5;
   padding: 0em;
@@ -82,7 +81,7 @@ span.vertical-timeline-element-icon {
 }
 
 // .vertical-timeline-element-date{
-//     font-size: 40px;
+//     text-align: left;
 // }
 
 
@@ -91,13 +90,13 @@ span.vertical-timeline-element-icon {
     font-size: 2rem !important;
 }
 
-
 h3,
 button {
   text-align: center;
 }
 
-.vertical-timeline-element-content:hover .moodDetails,
+.vertical-timeline-element-content:hover,
+.vertical-timeline-element-content:active .moodDetails,
 .timeline li:focus-visible .moodDetails {
   opacity: 1;
   z-index: 2;
@@ -113,4 +112,8 @@ h2 {
   text-align: center;
   font-size: 2.5rem;
   padding: 20px 0;
+}
+
+.vertical-timeline-element-content span {
+  margin-left: 20px;
 }

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 const Display = (props) => {
   const { gifGallery, handleClick, num, setNum, home } = props;
   return (
