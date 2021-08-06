@@ -10,6 +10,7 @@
   }
 
   .moodForm {
+    margin-top: 30px;
     input {
       width: 100%;
       margin: 10px 0;
@@ -28,5 +29,12 @@
 
   button.scroll {
     display: none;
+  }
+}
+
+// It still the same when change the size to 320px.
+@media (max-width:375px) {
+  .moodForm{
+    margin-top: 50px;
   }
 }

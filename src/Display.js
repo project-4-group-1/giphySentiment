@@ -4,6 +4,9 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const Display = (props) => {
   const { gifGallery, handleClick, num, setNum, home} = props;
   return (
+    // This section shows the results of selected mood, total is 50 pictures.
+    // We let user choose from each five, there are two buttons to go next and previous.
+    // Also there is another button show up to let user change their input.
     <section className="searchResults">
       <div className="wrapper">
         <h2>Search results:</h2>

@@ -18,6 +18,7 @@ const InputOutput = () => {
   const handleSubmit = (e) => {
     let gallery = [];
     e.preventDefault();
+    // Guarantee that user only choose one word without any space.
     if (!/\s/.test(userInput)) {
       axios({
         url: "https://api.giphy.com/v1/gifs/search",
@@ -31,6 +32,7 @@ const InputOutput = () => {
       })
         .then((res) => {
           gallery = res.data.data;
+          // If user input does not have any results from api, it alerts user to change input.
           if (gallery.length < 1) {
             alert("Invalid search, please try again.");
           } else {
@@ -45,6 +47,7 @@ const InputOutput = () => {
     }
   };
 
+  // Once user click on the certain image, it pass the data to firebase and display on timeline.
   const handleClick = (url, alt, id) => {
     const dbRef = firebase.database().ref();
     const imgObj = {
@@ -89,6 +92,7 @@ const InputOutput = () => {
       </header>
 
       <main ref={results}>
+        {/* Only runs when there is "something" to show. */}
         {gifGallery.length ? (
           <Display
             gifGallery={gifGallery}

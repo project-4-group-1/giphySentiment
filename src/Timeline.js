@@ -34,6 +34,8 @@ const Timeline = () => {
     dbRef.child(moodToRemove).remove();
   };
 
+  // Timeline used react-vertical-timeline-component, it map through everything
+  // we have on firebase and show the image information with a delete button.
   return (
     <div className="timeline" id="timeline">
       <h2>Timeline</h2>
