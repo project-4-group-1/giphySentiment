@@ -8,9 +8,9 @@ import "react-vertical-timeline-component/style.min.css";
 
 const Timeline = () => {
   const [timeLine, setTimeLine] = useState([]);
-  const dbRef = firebase.database().ref();
 
   useEffect(() => {
+    const dbRef = firebase.database().ref();
     dbRef.on("value", (snapshot) => {
       const myData = snapshot.val();
       const newArray = [];
