@@ -1,4 +1,4 @@
-# Gif In Touch
+# Welcome to the Gif In Touch App
 
 An emotion journal created using React and Firebase.
 Entering the emotion you are feeling in the search bar will trigger an API call to the giphy api.
